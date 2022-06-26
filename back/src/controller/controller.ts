@@ -12,10 +12,18 @@ export const controller = (listner: string, newPos: number[]): controllerResult 
       return mouse_left(newPos, oldPos);
     case "mouse_right":
       return mouse_right(newPos, oldPos);
+    case "mouse_position":
+      return mouse_position();
     default:
       break
     }; 
 };
+
+function mouse_position() {
+  let pos = robot.getMousePos();
+  let strPos = pos.x + ',' + pos.y;
+  return strPos;
+}
 
 function mouse_down(pos, { x, y }) {
   robot.moveMouse(x, y + pos[0]);
