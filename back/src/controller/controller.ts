@@ -1,5 +1,6 @@
 import robot from "robotjs";
-import { Listners, controllerResult } from "./controller.types.js";
+import { controllerResult } from "./controller.types.js";
+import { getCircle } from "../getFigures/circle.js";
 
 export const controller = (listner: string, newPos: number[]): controllerResult => {
   let oldPos = robot.getMousePos();
@@ -14,6 +15,8 @@ export const controller = (listner: string, newPos: number[]): controllerResult 
       return mouse_right(newPos, oldPos);
     case "mouse_position":
       return mouse_position();
+    case "draw_circle":
+      return getCircle(newPos[0]);
     default:
       break
     }; 
