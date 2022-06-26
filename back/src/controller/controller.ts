@@ -2,6 +2,7 @@ import robot from "robotjs";
 import { controllerResult } from "./controller.types.js";
 import { getCircle } from "../getFigures/circle.js";
 import { getSquare } from "../getFigures/square.js";
+import { getRectangle } from "../getFigures/rectangle.js";
 
 export const controller = (listner: string, newPos: number[]): controllerResult => {
   let oldPos = robot.getMousePos();
@@ -20,6 +21,8 @@ export const controller = (listner: string, newPos: number[]): controllerResult 
       return getCircle(newPos[0]);
     case "draw_square":
       return getSquare(newPos[0]);
+    case "draw_rectangle":
+      return getRectangle(newPos[0],newPos[1]);
     default:
       break
     }; 
