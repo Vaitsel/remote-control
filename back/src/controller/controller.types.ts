@@ -1,0 +1,1 @@
+export type controllerResult = void | string | Promise<void>;
